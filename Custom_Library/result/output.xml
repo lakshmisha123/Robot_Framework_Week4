@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.11.2 on win32)" generated="20230523 12:06:30.082" rpa="false" schemaversion="3">
+<suite id="s1" name="Testcase" source="F:\Custom_Library\testcase\testcase.robot">
+<kw name="Open My Browser And Maximize" library="keyword" type="SETUP">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230523 12:06:30.486" level="INFO">Opening browser 'chrome' to base url 'https://www.amazon.in/?ref_=icp_country_from_us'.</msg>
+<status status="PASS" starttime="20230523 12:06:30.486" endtime="20230523 12:06:48.801"/>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230523 12:06:48.801" endtime="20230523 12:06:49.117"/>
+</kw>
+<status status="PASS" starttime="20230523 12:06:30.486" endtime="20230523 12:06:49.117"/>
+</kw>
+<test id="s1-t1" name="Study On Custom Library" line="8">
+<kw name="Log To Console" library="BuiltIn" type="SETUP">
+<arg>Start</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230523 12:06:49.129" endtime="20230523 12:06:49.130"/>
+</kw>
+<kw name="Given Inputting Item Required Into SearchBar" library="keyword">
+<kw name="Wait For Element And Input Text Click" library="My_First_Library">
+<arg>${Search_Bar}</arg>
+<arg>${Item_For_Search}</arg>
+<arg>${Search_Button_Click}</arg>
+<status status="PASS" starttime="20230523 12:06:49.133" endtime="20230523 12:06:58.887"/>
+</kw>
+<status status="PASS" starttime="20230523 12:06:49.132" endtime="20230523 12:06:58.887"/>
+</kw>
+<kw name="When Selecting Products" library="keyword">
+<kw name="Wait For Element Scroll To Element And Clickon Element" library="My_First_Library">
+<arg>${Product_1}</arg>
+<status status="PASS" starttime="20230523 12:06:58.887" endtime="20230523 12:06:59.254"/>
+</kw>
+<kw name="Get Window Handles" library="Selenium2Library">
+<var>${Tabs}</var>
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<msg timestamp="20230523 12:06:59.595" level="INFO">${Tabs} = ['BC3A1FBA2E6834C568573DE1ECD3216F', '4979FF319EA481C3E5D83003C17DBA43']</msg>
+<status status="PASS" starttime="20230523 12:06:59.254" endtime="20230523 12:06:59.595"/>
+</kw>
+<kw name="Switch Window" library="Selenium2Library">
+<arg>${Tabs}[1]</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" starttime="20230523 12:06:59.596" endtime="20230523 12:06:59.717"/>
+</kw>
+<kw name="Wait For Element And Click" library="My_First_Library">
+<arg>${Product_To_Addcart}</arg>
+<status status="PASS" starttime="20230523 12:06:59.718" endtime="20230523 12:07:17.904"/>
+</kw>
+<kw name="Wait For Element And Click" library="My_First_Library">
+<arg>${close}</arg>
+<status status="PASS" starttime="20230523 12:07:17.905" endtime="20230523 12:07:19.702"/>
+</kw>
+<kw name="Switch Window" library="Selenium2Library">
+<arg>${Tabs}[0]</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" starttime="20230523 12:07:19.702" endtime="20230523 12:07:19.802"/>
+</kw>
+<kw name="Wait For Element Scroll To Element And Clickon Element" library="My_First_Library">
+<arg>${Product_2}</arg>
+<status status="PASS" starttime="20230523 12:07:19.802" endtime="20230523 12:07:20.349"/>
+</kw>
+<kw name="Get Window Handles" library="Selenium2Library">
+<var>${Tabs}</var>
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<msg timestamp="20230523 12:07:21.355" level="INFO">${Tabs} = ['BC3A1FBA2E6834C568573DE1ECD3216F', '4979FF319EA481C3E5D83003C17DBA43', '4EE18F9C51DDF29143586D3BD3A879F2']</msg>
+<status status="PASS" starttime="20230523 12:07:20.349" endtime="20230523 12:07:21.355"/>
+</kw>
+<kw name="Switch Window" library="Selenium2Library">
+<arg>${Tabs}[2]</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" starttime="20230523 12:07:21.356" endtime="20230523 12:07:22.038"/>
+</kw>
+<kw name="Wait For Element And Click" library="My_First_Library">
+<arg>${Product_To_Addcart}</arg>
+<status status="PASS" starttime="20230523 12:07:22.039" endtime="20230523 12:07:31.780"/>
+</kw>
+<kw name="Wait For Element And Click" library="My_First_Library">
+<arg>${close}</arg>
+<status status="PASS" starttime="20230523 12:07:31.780" endtime="20230523 12:07:34.044"/>
+</kw>
+<status status="PASS" starttime="20230523 12:06:58.887" endtime="20230523 12:07:34.044"/>
+</kw>
+<kw name="Then Getting Into Cart Section For Comparing Values" library="keyword">
+<kw name="Wait For Element Scroll To Element And Clickon Element" library="My_First_Library">
+<arg>${cart}</arg>
+<status status="PASS" starttime="20230523 12:07:34.046" endtime="20230523 12:07:40.945"/>
+</kw>
+<kw name="Getting Text Of Element And RemovingUnwanted String" library="My_First_Library">
+<var>${Product_1_Prize_String_Value_Altered}</var>
+<arg>${Product_1_Prize}</arg>
+<msg timestamp="20230523 12:07:41.126" level="INFO">${Product_1_Prize_String_Value_Altered} =   11999900</msg>
+<status status="PASS" starttime="20230523 12:07:40.945" endtime="20230523 12:07:41.126"/>
+</kw>
+<kw name="Getting Text Of Element And RemovingUnwanted String" library="My_First_Library">
+<var>${Product_2_Prize_String_Value_Altered}</var>
+<arg>${Product_2_Prize}</arg>
+<msg timestamp="20230523 12:07:41.169" level="INFO">${Product_2_Prize_String_Value_Altered} =   12799900</msg>
+<status status="PASS" starttime="20230523 12:07:41.128" endtime="20230523 12:07:41.170"/>
+</kw>
+<kw name="Getting Text Of Element And RemovingUnwanted String" library="My_First_Library">
+<var>${Total_Prize_String_Value}</var>
+<arg>${Total_Prize}</arg>
+<msg timestamp="20230523 12:07:41.201" level="INFO">${Total_Prize_String_Value} =   24799800</msg>
+<status status="PASS" starttime="20230523 12:07:41.170" endtime="20230523 12:07:41.201"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${Total_Prize_Numerical_Value}</var>
+<arg>${Total_Prize_String_Value}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230523 12:07:41.202" level="INFO">${Total_Prize_Numerical_Value} = 24799800.0</msg>
+<status status="PASS" starttime="20230523 12:07:41.201" endtime="20230523 12:07:41.202"/>
+</kw>
+<kw name="Add Num" library="My_First_Library">
+<var>${z}</var>
+<arg>${Product_1_Prize_String_Value_Altered}</arg>
+<arg>${Product_2_Prize_String_Value_Altered}</arg>
+<msg timestamp="20230523 12:07:41.202" level="INFO">${z} = 24799800.0</msg>
+<status status="PASS" starttime="20230523 12:07:41.202" endtime="20230523 12:07:41.202"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${z}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230523 12:07:41.202" endtime="20230523 12:07:41.203"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${z}</arg>
+<arg>${Total_Prize_Numerical_Value}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230523 12:07:41.203" endtime="20230523 12:07:41.203"/>
+</kw>
+<status status="PASS" starttime="20230523 12:07:34.045" endtime="20230523 12:07:41.203"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn" type="TEARDOWN">
+<arg>Exit</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230523 12:07:41.206" endtime="20230523 12:07:41.207"/>
+</kw>
+<doc>Custom Library Analysis</doc>
+<tag>test1</tag>
+<status status="PASS" starttime="20230523 12:06:49.118" endtime="20230523 12:07:41.208"/>
+</test>
+<kw name="Close Browser" library="Selenium2Library" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230523 12:07:41.216" endtime="20230523 12:07:43.566"/>
+</kw>
+<doc>Custom Library</doc>
+<status status="PASS" starttime="20230523 12:06:30.082" endtime="20230523 12:07:43.566"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">test1</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Testcase">Testcase</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

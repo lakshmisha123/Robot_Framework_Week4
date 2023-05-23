@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.11.2 on win32)" generated="20230523 12:09:39.490" rpa="false" schemaversion="3">
+<suite id="s1" name="Testcase" source="F:\Assisment Week 3\Testcases\Testcase.robot">
+<kw name="Open MY Browser And Maximize Window With URL Provided" library="Keyword" type="SETUP">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${url}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230523 12:09:39.935" level="INFO">Opening browser 'chrome' to base url 'https://www.amazon.in'.</msg>
+<status status="PASS" starttime="20230523 12:09:39.935" endtime="20230523 12:09:53.634"/>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230523 12:09:53.634" endtime="20230523 12:09:53.896"/>
+</kw>
+<status status="PASS" starttime="20230523 12:09:39.935" endtime="20230523 12:09:53.897"/>
+</kw>
+<test id="s1-t1" name="tc:1" line="7">
+<kw name="Log To Console" library="BuiltIn" type="SETUP">
+<arg>${Test_Case_1_Started}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230523 12:09:53.912" endtime="20230523 12:09:53.914"/>
+</kw>
+<kw name="Given Scrolling to Today's Deal Icon and Click on It" library="Keyword">
+<kw name="Scroll And Click" library="Keyword">
+<arg>${Todays_Deals}</arg>
+<kw name="Scroll Element Into View" library="Selenium2Library">
+<arg>${a}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20230523 12:09:53.918" endtime="20230523 12:09:54.692"/>
+</kw>
+<kw name="Wait For Element And Click" library="Custom">
+<arg>${a}</arg>
+<status status="PASS" starttime="20230523 12:09:54.692" endtime="20230523 12:09:57.708"/>
+</kw>
+<status status="PASS" starttime="20230523 12:09:53.917" endtime="20230523 12:09:57.708"/>
+</kw>
+<status status="PASS" starttime="20230523 12:09:53.916" endtime="20230523 12:09:57.708"/>
+</kw>
+<kw name="And Select Item Required" library="Keyword">
+<kw name="Wait For Element And Click" library="Custom">
+<arg>${3ed_Item_In_The_Page}</arg>
+<status status="PASS" starttime="20230523 12:09:57.710" endtime="20230523 12:10:07.359"/>
+</kw>
+<kw name="Scroll Element Into View" library="Selenium2Library">
+<arg>${Click}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20230523 12:10:07.359" endtime="20230523 12:10:08.301"/>
+</kw>
+<kw name="Wait For Element And Click" library="Custom">
+<arg>${Click}</arg>
+<status status="PASS" starttime="20230523 12:10:08.302" endtime="20230523 12:10:18.996"/>
+</kw>
+<status status="PASS" starttime="20230523 12:09:57.710" endtime="20230523 12:10:18.996"/>
+</kw>
+<kw name="Then Iteration Into Table" library="Keyword">
+<kw name="Get Element Count" library="Selenium2Library">
+<var>${row_count}</var>
+<arg>${rows}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20230523 12:10:19.130" level="INFO">${row_count} = 10</msg>
+<status status="PASS" starttime="20230523 12:10:18.998" endtime="20230523 12:10:19.130"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${row_count}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230523 12:10:19.131" endtime="20230523 12:10:19.131"/>
+</kw>
+<kw name="Get Element Count" library="Selenium2Library">
+<var>${colums_count}</var>
+<arg>${columns}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20230523 12:10:19.212" level="INFO">${colums_count} = 2</msg>
+<status status="PASS" starttime="20230523 12:10:19.132" endtime="20230523 12:10:19.212"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${colums_count}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230523 12:10:19.212" endtime="20230523 12:10:19.213"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${row}</var>
+<value>1</value>
+<value>${row_count}</value>
+<value>1</value>
+<iter>
+<var name="${row}">1</var>
+<kw name="Get Text" library="Selenium2Library">
+<var>${text}</var>
+<arg>//*[@class='a-normal a-spacing-micro']//tr[${row}]//td[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230523 12:10:19.382" level="INFO">${text} = Brand</msg>
+<status status="PASS" starttime="20230523 12:10:19.214" endtime="20230523 12:10:19.382"/>
+</kw>
+<if>
+<branch type="IF" condition="'${text}' == '${Expected_1}'">
+<for flavor="IN RANGE">
+<var>${c}</var>
+<value>1</value>
+<value>${colums_count}+1</value>
+<value>1</value>
+<iter>
+<var name="${c}"/>
+<kw name="Get Text" library="Selenium2Library">
+<var>${text2}</var>
+<arg>//*[@class='a-normal a-spacing-micro']//tr[${row}]//td[${c}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230523 12:10:19.384" endtime="20230523 12:10:19.384"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${text2}&quot; == &quot;${Expected_2}&quot;">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230523 12:10:19.385" endtime="20230523 12:10:19.385"/>
+</kw>
+<status status="NOT RUN" starttime="20230523 12:10:19.385" endtime="20230523 12:10:19.385"/>
+</branch>
+<status status="NOT RUN" starttime="20230523 12:10:19.385" endtime="20230523 12:10:19.385"/>
+</if>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${Expected_2}" == "${text2}"</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20230523 12:10:19.386" endtime="20230523 12:10:19.386"/>
+</kw>
+<status status="NOT RUN" starttime="20230523 12:10:19.383" endtime="20230523 12:10:19.386"/>
+</iter>
+<status status="NOT RUN" starttime="20230523 12:10:19.383" endtime="20230523 12:10:19.386"/>
+</for>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${Expected_1}" == "${text}"</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20230523 12:10:19.386" endtime="20230523 12:10:19.386"/>
+</kw>
+<status status="NOT RUN" starttime="20230523 12:10:19.383" endtime="20230523 12:10:19.387"/>
+</branch>
+<status status="PASS" starttime="20230523 12:10:19.383" endtime="20230523 12:10:19.387"/>
+</if>
+<status status="PASS" starttime="20230523 12:10:19.214" endtime="20230523 12:10:19.387"/>
+</iter>
+<iter>
+<var name="${row}">2</var>
+<kw name="Get Text" library="Selenium2Library">
+<var>${text}</var>
+<arg>//*[@class='a-normal a-spacing-micro']//tr[${row}]//td[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230523 12:10:19.526" level="INFO">${text} = Model Name</msg>
+<status status="PASS" starttime="20230523 12:10:19.387" endtime="20230523 12:10:19.526"/>
+</kw>
+<if>
+<branch type="IF" condition="'${text}' == '${Expected_1}'">
+<for flavor="IN RANGE">
+<var>${c}</var>
+<value>1</value>
+<value>${colums_count}+1</value>
+<value>1</value>
+<iter>
+<var name="${c}"/>
+<kw name="Get Text" library="Selenium2Library">
+<var>${text2}</var>
+<arg>//*[@class='a-normal a-spacing-micro']//tr[${row}]//td[${c}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230523 12:10:19.527" endtime="20230523 12:10:19.527"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${text2}&quot; == &quot;${Expected_2}&quot;">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230523 12:10:19.527" endtime="20230523 12:10:19.527"/>
+</kw>
+<status status="NOT RUN" starttime="20230523 12:10:19.527" endtime="20230523 12:10:19.527"/>
+</branch>
+<status status="NOT RUN" starttime="20230523 12:10:19.527" endtime="20230523 12:10:19.527"/>
+</if>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${Expected_2}" == "${text2}"</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20230523 12:10:19.528" endtime="20230523 12:10:19.528"/>
+</kw>
+<status status="NOT RUN" starttime="20230523 12:10:19.526" endtime="20230523 12:10:19.528"/>
+</iter>
+<status status="NOT RUN" starttime="20230523 12:10:19.526" endtime="20230523 12:10:19.528"/>
+</for>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${Expected_1}" == "${text}"</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20230523 12:10:19.528" endtime="20230523 12:10:19.528"/>
+</kw>
+<status status="NOT RUN" starttime="20230523 12:10:19.526" endtime="20230523 12:10:19.528"/>
+</branch>
+<status status="PASS" starttime="20230523 12:10:19.526" endtime="20230523 12:10:19.528"/>
+</if>
+<status status="PASS" starttime="20230523 12:10:19.387" endtime="20230523 12:10:19.529"/>
+</iter>
+<iter>
+<var name="${row}">3</var>
+<kw name="Get Text" library="Selenium2Library">
+<var>${text}</var>
+<arg>//*[@class='a-normal a-spacing-micro']//tr[${row}]//td[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230523 12:10:19.588" level="INFO">${text} = Screen Size</msg>
+<status status="PASS" starttime="20230523 12:10:19.529" endtime="20230523 12:10:19.588"/>
+</kw>
+<if>
+<branch type="IF" condition="'${text}' == '${Expected_1}'">
+<for flavor="IN RANGE">
+<var>${c}</var>
+<value>1</value>
+<value>${colums_count}+1</value>
+<value>1</value>
+<iter>
+<var name="${c}"/>
+<kw name="Get Text" library="Selenium2Library">
+<var>${text2}</var>
+<arg>//*[@class='a-normal a-spacing-micro']//tr[${row}]//td[${c}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230523 12:10:19.589" endtime="20230523 12:10:19.589"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${text2}&quot; == &quot;${Expected_2}&quot;">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230523 12:10:19.589" endtime="20230523 12:10:19.589"/>
+</kw>
+<status status="NOT RUN" starttime="20230523 12:10:19.589" endtime="20230523 12:10:19.589"/>
+</branch>
+<status status="NOT RUN" starttime="20230523 12:10:19.589" endtime="20230523 12:10:19.589"/>
+</if>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${Expected_2}" == "${text2}"</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20230523 12:10:19.590" endtime="20230523 12:10:19.590"/>
+</kw>
+<status status="NOT RUN" starttime="20230523 12:10:19.589" endtime="20230523 12:10:19.590"/>
+</iter>
+<status status="NOT RUN" starttime="20230523 12:10:19.589" endtime="20230523 12:10:19.590"/>
+</for>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${Expected_1}" == "${text}"</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20230523 12:10:19.590" endtime="20230523 12:10:19.590"/>
+</kw>
+<status status="NOT RUN" starttime="20230523 12:10:19.589" endtime="20230523 12:10:19.590"/>
+</branch>
+<status status="PASS" starttime="20230523 12:10:19.588" endtime="20230523 12:10:19.590"/>
+</if>
+<status status="PASS" starttime="20230523 12:10:19.529" endtime="20230523 12:10:19.590"/>
+</iter>
+<iter>
+<var name="${row}">4</var>
+<kw name="Get Text" library="Selenium2Library">
+<var>${text}</var>
+<arg>//*[@class='a-normal a-spacing-micro']//tr[${row}]//td[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230523 12:10:19.635" level="INFO">${text} = Colour</msg>
+<status status="PASS" starttime="20230523 12:10:19.590" endtime="20230523 12:10:19.635"/>
+</kw>
+<if>
+<branch type="IF" condition="'${text}' == '${Expected_1}'">
+<for flavor="IN RANGE">
+<var>${c}</var>
+<value>1</value>
+<value>${colums_count}+1</value>
+<value>1</value>
+<iter>
+<var name="${c}"/>
+<kw name="Get Text" library="Selenium2Library">
+<var>${text2}</var>
+<arg>//*[@class='a-normal a-spacing-micro']//tr[${row}]//td[${c}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230523 12:10:19.635" endtime="20230523 12:10:19.636"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${text2}&quot; == &quot;${Expected_2}&quot;">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230523 12:10:19.636" endtime="20230523 12:10:19.636"/>
+</kw>
+<status status="NOT RUN" starttime="20230523 12:10:19.636" endtime="20230523 12:10:19.636"/>
+</branch>
+<status status="NOT RUN" starttime="20230523 12:10:19.636" endtime="20230523 12:10:19.636"/>
+</if>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${Expected_2}" == "${text2}"</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20230523 12:10:19.636" endtime="20230523 12:10:19.636"/>
+</kw>
+<status status="NOT RUN" starttime="20230523 12:10:19.635" endtime="20230523 12:10:19.636"/>
+</iter>
+<status status="NOT RUN" starttime="20230523 12:10:19.635" endtime="20230523 12:10:19.636"/>
+</for>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${Expected_1}" == "${text}"</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20230523 12:10:19.636" endtime="20230523 12:10:19.636"/>
+</kw>
+<status status="NOT RUN" starttime="20230523 12:10:19.635" endtime="20230523 12:10:19.636"/>
+</branch>
+<status status="PASS" starttime="20230523 12:10:19.635" endtime="20230523 12:10:19.636"/>
+</if>
+<status status="PASS" starttime="20230523 12:10:19.590" endtime="20230523 12:10:19.636"/>
+</iter>
+<iter>
+<var name="${row}">5</var>
+<kw name="Get Text" library="Selenium2Library">
+<var>${text}</var>
+<arg>//*[@class='a-normal a-spacing-micro']//tr[${row}]//td[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230523 12:10:19.680" level="INFO">${text} = Hard Disk Size</msg>
+<status status="PASS" starttime="20230523 12:10:19.637" endtime="20230523 12:10:19.680"/>
+</kw>
+<if>
+<branch type="IF" condition="'${text}' == '${Expected_1}'">
+<for flavor="IN RANGE">
+<var>${c}</var>
+<value>1</value>
+<value>${colums_count}+1</value>
+<value>1</value>
+<iter>
+<var name="${c}">1</var>
+<kw name="Get Text" library="Selenium2Library">
+<var>${text2}</var>
+<arg>//*[@class='a-normal a-spacing-micro']//tr[${row}]//td[${c}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230523 12:10:19.731" level="INFO">${text2} = Hard Disk Size</msg>
+<status status="PASS" starttime="20230523 12:10:19.680" endtime="20230523 12:10:19.731"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${text2}&quot; == &quot;${Expected_2}&quot;">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230523 12:10:19.732" endtime="20230523 12:10:19.732"/>
+</kw>
+<status status="NOT RUN" starttime="20230523 12:10:19.732" endtime="20230523 12:10:19.732"/>
+</branch>
+<status status="PASS" starttime="20230523 12:10:19.731" endtime="20230523 12:10:19.732"/>
+</if>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${Expected_2}" == "${text2}"</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20230523 12:10:19.732" endtime="20230523 12:10:19.732"/>
+</kw>
+<status status="PASS" starttime="20230523 12:10:19.680" endtime="20230523 12:10:19.733"/>
+</iter>
+<iter>
+<var name="${c}">2</var>
+<kw name="Get Text" library="Selenium2Library">
+<var>${text2}</var>
+<arg>//*[@class='a-normal a-spacing-micro']//tr[${row}]//td[${c}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230523 12:10:19.787" level="INFO">${text2} = 512 GB</msg>
+<status status="PASS" starttime="20230523 12:10:19.733" endtime="20230523 12:10:19.787"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${text2}&quot; == &quot;${Expected_2}&quot;">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230523 12:10:19.787" endtime="20230523 12:10:19.788"/>
+</kw>
+<status status="PASS" starttime="20230523 12:10:19.787" endtime="20230523 12:10:19.788"/>
+</branch>
+<status status="PASS" starttime="20230523 12:10:19.787" endtime="20230523 12:10:19.788"/>
+</if>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${Expected_2}" == "${text2}"</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<msg timestamp="20230523 12:10:19.790" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20230523 12:10:19.789" endtime="20230523 12:10:19.791"/>
+</kw>
+<status status="PASS" starttime="20230523 12:10:19.788" endtime="20230523 12:10:19.792"/>
+</kw>
+<status status="PASS" starttime="20230523 12:10:19.733" endtime="20230523 12:10:19.792"/>
+</iter>
+<status status="PASS" starttime="20230523 12:10:19.680" endtime="20230523 12:10:19.793"/>
+</for>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${Expected_1}" == "${text}"</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<msg timestamp="20230523 12:10:19.797" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20230523 12:10:19.796" endtime="20230523 12:10:19.797"/>
+</kw>
+<status status="PASS" starttime="20230523 12:10:19.793" endtime="20230523 12:10:19.798"/>
+</kw>
+<status status="PASS" starttime="20230523 12:10:19.680" endtime="20230523 12:10:19.798"/>
+</branch>
+<status status="PASS" starttime="20230523 12:10:19.680" endtime="20230523 12:10:19.798"/>
+</if>
+<status status="PASS" starttime="20230523 12:10:19.636" endtime="20230523 12:10:19.798"/>
+</iter>
+<status status="PASS" starttime="20230523 12:10:19.213" endtime="20230523 12:10:19.798"/>
+</for>
+<status status="PASS" starttime="20230523 12:10:18.997" endtime="20230523 12:10:19.798"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn" type="TEARDOWN">
+<arg>${Test_Case_2_Over}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230523 12:10:19.799" endtime="20230523 12:10:19.799"/>
+</kw>
+<doc>Amazon Functionality</doc>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20230523 12:09:53.899" endtime="20230523 12:10:19.800"/>
+</test>
+<kw name="Close Browser" library="Selenium2Library" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230523 12:10:19.803" endtime="20230523 12:10:22.137"/>
+</kw>
+<doc>Amazon Overall Functionality</doc>
+<status status="PASS" starttime="20230523 12:09:39.490" endtime="20230523 12:10:22.137"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Testcase">Testcase</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
